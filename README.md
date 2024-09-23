@@ -28,6 +28,9 @@ Un manejador de errores para capturar y responder a los errores en la API.
 #### `pathHandler.js`
 Un manejador para las rutas no encontradas que responde con un mensaje apropiado.
 
+## Postman
+![Product Validation](https://i.imgur.com/sPofVER.png)
+
 ## **Requisitos**:
   - Node.js.
   - Express.
