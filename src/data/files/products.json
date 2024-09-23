@@ -1,0 +1,313 @@
+[
+  {
+    "title": "Hardware 1",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "0889cfa1ec576080a9be4623"
+  },
+  {
+    "title": "Hardware 2",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "e6bde06fbd8c8bf38f6c5516"
+  },
+  {
+    "title": "Hardware 3",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "c4dce9d6f361829389b3c2ed"
+  },
+  {
+    "title": "Hardware 4",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "9ea5b9311d2477de65337bb1"
+  },
+  {
+    "title": "Hardware 5",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "86ec566c235acf24e7b3b041"
+  },
+  {
+    "title": "Hardware 6",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "b13d464c794637b5fe8d83e8"
+  },
+  {
+    "title": "Hardware 7",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "6ee33e00f2db54673b371df4"
+  },
+  {
+    "title": "Hardware 8",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "4f5ca17f79ba9ec53915fc3f"
+  },
+  {
+    "title": "Hardware 9",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "b545d5c4bba4ca6a4e8b8f81"
+  },
+  {
+    "title": "Hardware 10",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "c345b3e7be95424cc68fe5b4"
+  },
+  {
+    "title": "Hardware 11",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "45822bf5c8d3e1e282414a39"
+  },
+  {
+    "title": "Hardware 12",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "211fa2bac489a45288d836d5"
+  },
+  {
+    "title": "Hardware 13",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "f5bf71ce3fbc71cf11fd7eca"
+  },
+  {
+    "title": "Hardware 14",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "b9829dfd2a20291ad9459780"
+  },
+  {
+    "title": "Hardware 15",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "d1d45ccca7fe755dad260a8f"
+  },
+  {
+    "title": "Hardware 16",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "030cde69e3a5fbebad331a06"
+  },
+  {
+    "title": "Hardware 17",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "54801055d9eec55a413d15ff"
+  },
+  {
+    "title": "Hardware 18",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "08dce255e5920433e89d1e3f"
+  },
+  {
+    "title": "Hardware 19",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "043d94b902818c4d3e3b577a"
+  },
+  {
+    "title": "Hardware 20",
+    "price": "100",
+    "stock": "100",
+    "category": "Hardware",
+    "id": "2094d2a6757925296864f384"
+  },
+  {
+    "title": "Computer 1",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "e6cf5b03b440529c58510c5a"
+  },
+  {
+    "title": "Computer 2",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "d2ff443e313add329361260f"
+  },
+  {
+    "title": "Computer 3",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "12df690f498ed3d86cc01778"
+  },
+  {
+    "title": "Computer 4",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "aa4baee772f02ab3da86ef66"
+  },
+  {
+    "title": "Computer 5",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "9052f3c536c6f511e1484576"
+  },
+  {
+    "title": "Computer 6",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "b4bc7b73fb1e8da8afba8cc5"
+  },
+  {
+    "title": "Computer 7",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "918ece04b1aa3e1e59efe798"
+  },
+  {
+    "title": "Computer 8",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "a43a9e524a076a73da658898"
+  },
+  {
+    "title": "Computer 9",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "2051b2f7e81300bea5d4082b"
+  },
+  {
+    "title": "Computer 10",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "dab9a056c6a127c89db3f5d2"
+  },
+  {
+    "title": "Computer 11",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "15680ca067177c87294f1da6"
+  },
+  {
+    "title": "Computer 12",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "629df9b8164841d05617b4f1"
+  },
+  {
+    "title": "Computer 13",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "2169b9d0910387a4e4711f43"
+  },
+  {
+    "title": "Computer 14",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "c6e9de233343934fec9e2bc5"
+  },
+  {
+    "title": "Computer 15",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "05cef4fc26c182cd80b52022"
+  },
+  {
+    "title": "Computer 16",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "87d963c5fa6267fd9598b457"
+  },
+  {
+    "title": "Computer 17",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "8946408a215a1b0781419a3b"
+  },
+  {
+    "title": "Computer 18",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "e3621cc7da73522f15ed6b2d"
+  },
+  {
+    "title": "Computer 19",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "b815ab6f0ab59b5d87001f25"
+  },
+  {
+    "title": "Computer 20",
+    "price": "100",
+    "stock": "100",
+    "category": "Computers",
+    "id": "7c748e4f1d30195b969385df"
+  },
+  {
+    "title": "Test 111",
+    "price": "100",
+    "stock": "100",
+    "category": "Test",
+    "id": "dae90eef524013686d9a6155"
+  },
+  {
+    "title": "Test 111",
+    "price": 100,
+    "stock": 100,
+    "category": "Test",
+    "photo": "defaultUrl.png",
+    "id": "8d2bd67fbddaaf1ef55a6c6d"
+  },
+  {
+    "title": "Test 111",
+    "stock": 100,
+    "category": "Test",
+    "price": 1,
+    "photo": "defaultUrl.png",
+    "id": "2631714d7e28119e75bfdeb5"
+  },
+  {
+    "title": "Test 6666",
+    "price": 1,
+    "stock": 100,
+    "category": "nocategory",
+    "photo": "defaultUrl.png",
+    "id": "6c87972df6323f8e32b8a4c1"
+  }
+]
