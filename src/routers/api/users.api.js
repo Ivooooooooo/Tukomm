@@ -1,19 +1,23 @@
 import { Router } from "express";
-import {
-  getAllUsers,
-  getUser,
-  createUser,
-  updateUser,
-  destroyUser,
+import { 
+    createUser,
+    destroyUser,
+    getAllUsers,
+    getUser,
+    updateUser
 } from "../../controllers/users.controller.js";
-import isValidUser from "../../middlewares/isValidUser.mid.js";
+import { 
+    validateNewUser,
+    validateUserModification
+} from "../../middlewares/isValidData.mid.js";
 
-const usersApiRouter = Router();
 
-usersApiRouter.get("/", getAllUsers);
-usersApiRouter.get("/:uid", getUser);
-usersApiRouter.post("/", isValidUser, createUser);
-usersApiRouter.put("/:uid", updateUser);
-usersApiRouter.delete("/:uid", destroyUser);
+const usersRouter = Router();
 
-export default usersApiRouter;
+usersRouter.get("/", getAllUsers);
+usersRouter.get("/:pid", getUser);
+usersRouter.post("/", validateNewUser, createUser);
+usersRouter.put("/:pid", validateUserModification, updateUser);
+usersRouter.delete("/:pid", destroyUser);
+
+export default usersRouter;

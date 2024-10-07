@@ -1,9 +1,27 @@
 import { Router } from "express";
-import { showProducts, showOneProduct } from "../../controllers/products.controller.js";
+import { 
+    adminProducts,
+    createViewProduct,
+    deleteViewProduct,
+    showEditProduct,
+    showOneProduct,
+    showAllProducts,
+    updateViewProduct
+} from "../../controllers/products.controller.js";
 
 const productsViewRouter = Router();
 
-productsViewRouter.route("/").get(showProducts);
-productsViewRouter.route("/:pid").get(showOneProduct);
+productsViewRouter.get("/", showAllProducts);
+productsViewRouter.get("/admin", adminProducts); 
+
+productsViewRouter.delete("/admin/:pid", deleteViewProduct);
+
+productsViewRouter.get("/admin/create", (req, res) => { res.render("create"); });
+productsViewRouter.post("/admin/create", createViewProduct);
+
+productsViewRouter.get("/admin/edit/:pid", showEditProduct);
+productsViewRouter.post("/admin/:pid", updateViewProduct);
+
+productsViewRouter.get("/:pid", showOneProduct);
 
 export default productsViewRouter;

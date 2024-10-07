@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Test 111",
+    "photo": "defaultPFP.png",
+    "price": 100,
+    "stock": 1,
+    "category": "default",
+    "id": "8e480407926a9487f60369d9"
+  },
+  {
+    "title": "Test 999",
+    "photo": "notiene",
+    "category": "testing",
+    "price": "444",
+    "stock": "100",
+    "id": "bff662359f48dbad830b7ed6"
+  }
+]

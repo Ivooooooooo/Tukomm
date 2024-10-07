@@ -1,12 +1,12 @@
-<h2>PRODUCTS</h2>
-<section class="d-flex flex-wrap justify-content-evenly">
-  {{#each products}}
-    <div class="card my-2" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{this.title}}</h5>
-        <p class="card-text">{{this.category}}</p>
-        <a href="/products/{{this.id}}" class="btn btn-warning">+info</a>
-      </div>
-    </div>
-  {{/each}}
+<section class="products-grid">
+    {{#each data}}
+    <a href="/products/{{this.id}}" class="product-card">
+        <article>
+            <h3 class="product-title">{{this.title}}</h3>
+            <p class="product-price">${{this.price}}</p>
+            <p class="product-category">{{this.category}}</p>
+            <p class="product-stock">Stock: {{this.stock}}</p>
+        </article>
+    </a>
+    {{/each}}
 </section>

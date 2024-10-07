@@ -1,0 +1,24 @@
+<div class="center-div">
+    <div class="form-container">
+        <h2 class="form-title">Edit Product</h2>
+        <form action="/products/admin/{{product.id}}" method="POST">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" id="title" name="title" value="{{product.title}}" class="form-input" required>
+
+            <label for="price" class="form-label">Price:</label>
+            <input type="number" id="price" name="price" value="{{product.price}}" class="form-input" required>
+
+            <label for="stock" class="form-label">Stock:</label>
+            <input type="number" id="stock" name="stock" value="{{product.stock}}" class="form-input" required>
+
+            <label for="category" class="form-label">Category:</label>
+            <input type="text" id="category" name="category" value="{{product.category}}" class="form-input" required>
+
+            <label for="photo" class="form-label">Image URL:</label>
+            <input type="text" id="photo" name="photo" value="{{product.photo}}" class="form-input" required>
+
+            <button type="submit" class="form-button">Update Product</button>
+            <a href="/products/admin" class="form-link">Cancel</a>
+        </form>
+    </div>
+</div>

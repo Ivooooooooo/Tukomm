@@ -1,0 +1,23 @@
+<div class="center-div">
+    <form action="/products/admin/create" method="POST" class="form-container">
+        <h2 class="form-title">Create Product</h2>
+        
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" id="title" name="title" class="form-input" required>
+
+        <label for="price" class="form-label">Price:</label>
+        <input type="number" id="price" name="price" class="form-input" required>
+
+        <label for="stock" class="form-label">Stock:</label>
+        <input type="number" id="stock" name="stock" class="form-input" required>
+
+        <label for="category" class="form-label">Category:</label>
+        <input type="text" id="category" name="category" class="form-input" required>
+
+        <label for="photo" class="form-label">Image URL:</label>
+        <input type="text" id="photo" name="photo" class="form-input" required>
+
+        <button type="submit" class="form-button">Create Product</button>
+        <a href="/products/admin" class="form-link">Cancel</a>
+    </form>
+</div>

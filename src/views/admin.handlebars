@@ -1,0 +1,38 @@
+<div class="product-list-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Category</th>
+                <th>Delete</th>
+                <th>Edit</th>
+                <th colspan="8" style="text-align: center;">
+                    <a href="/products/admin/create" class="btn-add-new">[+] Add New
+                        Product</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.title}}</td>
+                <td>${{this.price}}</td>
+                <td>{{this.stock}}</td>
+                <td>{{this.category}}</td>
+                <td>
+                    <form action="/products/admin/{{this.id}}" method="POST" class="delete-form">
+                        <button type="submit" class="btn-delete" aria-label="Delete Product">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="/products/admin/edit/{{this.id}}" class="btn-edit" aria-label="Edit Product">Edit</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

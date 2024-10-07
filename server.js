@@ -2,39 +2,33 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { engine } from "express-handlebars";
-import router from "./src/routers/index.router.js";
+import __dirname from "./utils.js";
+import router from "./src/routers/index.router.js"
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
-import __dirname from "./utils.js";
 
-const startServer = async () => {
-  try {
-    const server = express();
-    const port = process.env.PORT || 8000; // agregar key al .env
+try {
+    const app = express();
+    const port = process.env.PORT || 8080;
 
-    server.use(morgan("dev"));
-    server.use(express.urlencoded({ extended: true }));
-    server.use(express.json());
-    server.use(cors());
+    app.use(express.urlencoded({ extended: true }));
+    app.use(express.json());
+    app.use(morgan("dev"));
+    app.use(cors());
+    app.use("/public", express.static("public"));
 
-    server.use("/public", express.static(__dirname + "/public"));
+    app.engine("handlebars", engine());
+    app.set("view engine", "handlebars");
+    app.set("views", __dirname + "/src/views");
 
-    server.engine("handlebars", engine());
-    server.set("view engine", "handlebars");
-    server.set("views", __dirname + "/src/views");
+    app.use(router);
 
-    server.use(router);
+    app.use(pathHandler);
+    app.use(errorHandler);
 
-    server.use(errorHandler);
-    server.use(pathHandler);
-
-    server.listen(port, () => {
-      console.log(`Server ready on port ${port}`);
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
     });
-  } catch (error) {
-    console.error("Failed to start the server:", error);
-    process.exit(1);
-  }
-};
-
-startServer();
+} catch (e) {
+    console.log(e);
+}

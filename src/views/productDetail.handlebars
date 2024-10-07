@@ -1,0 +1,14 @@
+<div class="product-container">
+    <div class="product-image">
+        <img src="{{data.photo}}" alt="{{data.title}}" 
+        onerror="this.onerror=null; this.src='https://www.eclosio.ong/wp-content/uploads/2018/08/default.png';">
+    </div>
+    <div class="product-details">
+        <h3 class="product-title-detail">{{data.title}}</h3>
+        <hr>
+        <p class="product-price-detail">${{data.price}}</p>
+        <hr>
+        <p class="product-category-detail">Category: {{data.category}}</p>
+        <p class="product-stock-detail">Stock: {{data.stock}}</p>
+    </div>
+</div>
