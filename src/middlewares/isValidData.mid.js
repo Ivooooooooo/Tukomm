@@ -54,10 +54,10 @@ function validateProductModification(req, res, next) {
 }
 
 function validateNewUser(req, res, next) {
-    const { email, password, role, photo } = req.body;
+    const { username, email, password, role, photo } = req.body;
 
-    if (!email || !password) {
-        return res.status(400).json({ error: "Both email and password are required." });
+    if (!username || !email || !password) {
+        return res.status(400).json({ error: "Username, email and password are required." });
     }
 
     next();

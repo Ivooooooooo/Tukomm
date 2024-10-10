@@ -36,7 +36,7 @@ async function createProduct(req, res, next) {
     try {
         const {
             title,
-            photo = "defaultPFP.png",
+            photo,
             price = 1,
             stock = 1,
             category = "default"

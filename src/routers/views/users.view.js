@@ -15,4 +15,14 @@ usersViewRouter.get("/register", (req, res) => {
 
 usersViewRouter.post("/register", createViewUser);
 
+usersViewRouter.get("/profile", (req, res, next) => {
+    if (!req.session.userId) {
+        return res.redirect("/users/login");
+    }
+
+    const userData = req.session.userData;
+    console.log("Profile photo URL: ", userData.photo); 
+    return res.render("profile", { user: userData });
+});
+
 export default usersViewRouter;

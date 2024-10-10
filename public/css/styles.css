@@ -98,6 +98,37 @@ main {
     text-decoration: none;
 }
 
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-details {
+  margin: 20px 0;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.btn-back {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-back:hover {
+  background-color: #0056b3;
+}
+
 .form-link:hover {
     text-decoration: underline;
 }
@@ -237,6 +268,7 @@ h2 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+input[type="username"],
 input[type="email"],
 input[type="password"] {
   width: 100%;
@@ -246,6 +278,7 @@ input[type="password"] {
   font-size: 1rem;
 }
 
+input[type="username"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
   outline: none;

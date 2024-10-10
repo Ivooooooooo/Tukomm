@@ -3,13 +3,27 @@ import morgan from "morgan";
 import cors from "cors";
 import { engine } from "express-handlebars";
 import __dirname from "./utils.js";
-import router from "./src/routers/index.router.js"
+import router from "./src/routers/index.router.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
+import session from "express-session";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 try {
     const app = express();
-    const port = process.env.PORT || 8080;
+    const port = process.env.PORT;
+
+    app.use(session({
+        secret: process.env.SESSION_SECRET,
+        resave: process.env.SESSION_RESAVE === 'true',
+        saveUninitialized: process.env.SESSION_SAVE_UNINITIALIZED === 'true',
+        cookie: {
+            secure: process.env.SESSION_COOKIE_SECURE === 'true',
+            maxAge: 1000 * 60 * 60 * 24
+        }
+    }));
 
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());

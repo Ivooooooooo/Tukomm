@@ -4,7 +4,7 @@ import usersViewRouter from "./users.view.js";
 
 const viewRouter = Router();
 
-viewRouter.get("/", (res, next)=> {
+viewRouter.get("/", (req, res, next)=> {
     try {
         return res.redirect("/products");
     } catch (error) {

@@ -1,9 +1,9 @@
 [
- {
-  "email": "test@gmail.com",
-  "password": "testpass",
-  "photo": "470px-Treated_NKS_heimdallr.jpg",
-  "role": 0,
-  "id": "ae3ced14d5adc1f2fce46fdf"
- }
+  {
+    "email": "admin@test.com",
+    "password": "admin",
+    "photo": "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg",
+    "role": 0,
+    "id": "0cbcd3d45caef945869590f8"
+  }
 ]

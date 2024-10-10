@@ -1,0 +1,12 @@
+<div class="profile-container">
+    <h2>Welcome, {{user.username}}</h2>
+
+    <div class="profile-details">
+        <p><strong>Email:</strong> {{user.email}}</p>
+        <p><strong>Role:</strong> {{user.role}}</p>
+        <p><strong>Profile Picture:</strong></p>
+        <img src="{{user.photo}}" alt="Profile Picture" class="profile-photo" />
+    </div>
+
+    <a href="/products" class="btn-back">Back to Products</a>
+</div>

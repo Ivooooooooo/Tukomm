@@ -35,7 +35,10 @@ async function createUser(req, res, next) {
     try {
         const data = req.body;
 
-        data.photo = data.photo || "defaultPFP.png";
+        if (!data.photo || data.photo.trim() === "") {
+            data.photo = "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg";
+        }
+
         data.role = data.role || 0;
 
         const response = await usersManager.create(data);
@@ -105,7 +108,8 @@ async function authenticateUser(req, res, next) {
 
         if (user) {
             req.session.userId = user.id;
-            return res.redirect("/products");
+            req.session.userData = user;
+            return res.redirect(`/users/profile`);
         } else {
             return res.render("login", { error: "Invalid email or password." });
         }
@@ -117,9 +121,11 @@ async function authenticateUser(req, res, next) {
 
 async function createViewUser(req, res, next) {
     try {
-        const { email, password, photo = "defaultPFP.png", role = 0 } = req.body;
+        const { email, password, photo, role = 0 } = req.body;
 
-        const userData = { email, password, photo, role };
+        const userPhoto = (photo && photo.trim() !== "") ? photo : "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg";
+
+        const userData = { email, password, photo: userPhoto, role };
 
         console.log("User data for creation:", userData);
 
