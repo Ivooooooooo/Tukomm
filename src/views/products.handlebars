@@ -1,6 +1,6 @@
 <section class="products-grid">
     {{#each data}}
-    <a href="/products/{{this.id}}" class="product-card">
+    <a href="/products/{{this.__id}}" class="product-card">
         <article>
             <h3 class="product-title">{{this.title}}</h3>
             <p class="product-price">${{this.price}}</p>

@@ -1,10 +1,12 @@
 import { Router } from "express";
-import productsRouter from "./products.api.js";
-import usersRouter from "./users.api.js";
+import productsApiRouter from "./products.api.js";
+import usersApiRouter from "./users.api.js";
+import cartsApiRouter from "./carts.api.js";
 
-const apiRouter = Router();
+const apiRouter = Router()
 
-apiRouter.use("/products", productsRouter);
-apiRouter.use("/users", usersRouter);
+apiRouter.use("/products", productsApiRouter)
+apiRouter.use("/users", usersApiRouter)
+apiRouter.use("/carts", cartsApiRouter)
 
-export default apiRouter;
+export default apiRouter

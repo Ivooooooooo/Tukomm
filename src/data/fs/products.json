@@ -1,10 +1,9 @@
 [
   {
-    "title": "Test 999",
-    "photo": "notiene",
-    "category": "testing",
-    "price": "444",
-    "stock": "100",
-    "id": "bff662359f48dbad830b7ed6"
+    "title": "Test 111",
+    "price": 100,
+    "stock": 1,
+    "category": "default",
+    "id": "e763b2397599d44788f2b51a"
   }
 ]

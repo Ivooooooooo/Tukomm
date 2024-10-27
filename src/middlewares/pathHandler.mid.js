@@ -1,13 +1,7 @@
-const pathHandler = (req, res) => {
-    const message = `The route ${req.method} ${req.url} does not exist.`;
-    console.warn(message);
-
-    res.status(404).json({
-        status: 'error',
-        statusCode: 404,
-        message,
-        suggestion: 'Please check the URL or return to the homepage.',
-    });
+const pathHandler = (req, res, next) => {
+    const message = `${req.method} ${req.url} path not found`;
+    console.error(message);
+    return res.status(404).json({ message });
 };
 
 export default pathHandler;

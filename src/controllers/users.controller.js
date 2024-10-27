@@ -1,155 +1,122 @@
-import usersManager from "../data/users.manager.js";
+import usersMongoManager from "../data/mongo/managers/user.manager.js";
 
-const handleError = (message, statusCode = 404) => {
-    const error = new Error(message);
-    error.statusCode = statusCode;
-    throw error;
-};
-
-async function getAllUsers(req, res, next) {
-    try {
-        const response = await usersManager.readAll();
-        if (response.length > 0) {
-            return res.status(200).json({ message: "Users retrieved successfully", response });
-        }
-        handleError("No users found", 404);
-    } catch (error) {
-        next(error);
-    }
-}
-
-async function getUser(req, res, next) {
-    try {
-        const { uid } = req.params;
-        const response = await usersManager.read(uid);
-        if (response) {
-            return res.status(200).json({ message: "User retrieved successfully", response });
-        }
-        handleError(`User with ID ${uid} not found`, 404);
-    } catch (error) {
-        next(error);
-    }
-}
-
-async function createUser(req, res, next) {
+const create = async (req, res, next) => {
     try {
         const data = req.body;
-
-        if (!data.photo || data.photo.trim() === "") {
-            data.photo = "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg";
-        }
-
-        data.role = data.role || 0;
-
-        const response = await usersManager.create(data);
-        return res.status(201).json({ message: "User created successfully", response });
+        const { _id } = await usersMongoManager.create(data);
+        res.status(201).json({ message: "User successfully created", id: _id });
     } catch (error) {
         next(error);
     }
-}
+};
 
-async function updateUser(req, res, next) {
+const readAll = async (req, res, next) => {
     try {
-        const { uid } = req.params;
-        const newData = req.body;
-        const response = await usersManager.update(uid, newData);
-        if (!response) {
-            handleError(`Unable to update: User with ID ${uid} not found`, 404);
-        }
-        return res.status(200).json({ message: "User updated successfully", response });
+        const filter = req.query;
+        const users = await usersMongoManager.readAll(filter);
+        if (users.length === 0) throw { statusCode: 404, message: "No users found matching the provided filter" };
+        res.status(200).json({ message: "Users successfully retrieved", users });
     } catch (error) {
         next(error);
     }
-}
+};
 
-async function destroyUser(req, res, next) {
+const read = async (req, res, next) => {
     try {
-        const { uid } = req.params;
-        const response = await usersManager.delete(uid);
-        if (!response) {
-            handleError(`Unable to delete: User with ID ${uid} not found`, 404);
-        }
-        return res.status(200).json({ message: "User deleted successfully", response });
+        const { pid } = req.params;
+        const user = await usersMongoManager.read(pid);
+        if (!user) throw { statusCode: 404, message: `User with ID ${pid} not found` };
+        res.status(200).json({ message: "User successfully retrieved", user });
     } catch (error) {
         next(error);
     }
-}
+};
 
-async function showUsers(req, res, next) {
+const update = async (req, res, next) => {
     try {
-        const users = await usersManager.readAll();
-        if (users.length > 0) {
-            return res.render("users", { users });
-        }
-        handleError("No users found", 404);
+        const { pid } = req.params;
+        const data = req.body;
+        const updatedUser = await usersMongoManager.update(pid, data);
+        if (!updatedUser) throw { statusCode: 404, message: `User with ID ${pid} not found` };
+        res.status(200).json({ message: "User successfully updated", updatedUser });
     } catch (error) {
         next(error);
     }
-}
+};
 
-async function showOneUser(req, res, next) {
+const destroy = async (req, res, next) => {
     try {
-        const { uid } = req.params;
-        const user = await usersManager.read(uid);
-        if (user) {
-            return res.render("oneuser", { one: user });
-        }
-        handleError(`User with ID ${uid} not found`, 404);
+        const { pid } = req.params;
+        const deletedUser = await usersMongoManager.destroy(pid);
+        if (!deletedUser) throw { statusCode: 404, message: `User with ID ${pid} not found` };
+        res.status(200).json({ message: "User successfully deleted", deletedUser });
     } catch (error) {
         next(error);
     }
-}
+};
 
 async function authenticateUser(req, res, next) {
     const { email, password } = req.body;
+    console.log(req.body);
 
     try {
-        const user = await usersManager.authenticate(email, password);
+        const allUsers = await usersMongoManager.readAll();
+        const user = allUsers.find(user => user.email === email);
 
-        if (user) {
-            req.session.userId = user.id;
-            req.session.userData = user;
-            return res.redirect(`/users/profile`);
+        if (user && user.password === password) {
+
+            await usersMongoManager.update(user.id, { isOnline: true });
+            console.log("Usuario logueado: ", user);
+
+            return res.redirect("/");
         } else {
-            return res.render("login", { error: "Invalid email or password." });
+            return res.render("login", { error: "Invalid email or password" });
         }
     } catch (error) {
-        console.error("Authentication error:", error);
-        return next(new Error("An error occurred during authentication. Please try again later."));
+        console.error(error);
+        return next(error);
     }
 }
 
-async function createViewUser(req, res, next) {
+async function registerUser(req, res, next) {
     try {
-        const { email, password, photo, role = 0 } = req.body;
+        const { 
+            email, 
+            password, 
+            photo, 
+            role,
+            isOnline
+        } = req.body;
+        
+        const data = {
+            email,
+            password,
+            photo,
+            role,
+            isOnline
+        };
 
-        const userPhoto = (photo && photo.trim() !== "") ? photo : "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg";
-
-        const userData = { email, password, photo: userPhoto, role };
-
-        console.log("User data for creation:", userData);
-
-        await usersManager.create(userData);
-
-        return res.redirect("/users/login");
+        console.log(data);
+    
+        await usersMongoManager.create(data);
+    
+        return res.redirect("/users/login")
+        
     } catch (error) {
-        console.error("Error creating user:", error);
-        return next(new Error("An error occurred while creating the user. Please try again."));
+        return next(error);
     }
 }
 
+async function profileView(req, res, next) {
+    try {
+        const userId = req.params.id;
+        const user = await usersMongoManager.read(userId); 
 
-export {
-    getAllUsers,
-    getUser,
-
-    showUsers,
-    showOneUser,
-
-    createUser,
-    updateUser,
-    destroyUser,
-
-    authenticateUser,
-    createViewUser
+        res.render("profile", { user });
+        
+    } catch (error) {
+        return next(error);
+    }
 }
+
+export { create, readAll, read, update, destroy, authenticateUser, registerUser, profileView };
